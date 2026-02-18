@@ -59,8 +59,8 @@ Object.keys(graphs).forEach(chain => {
                         smartAccountSnapshots.forEach(saSnapshot => {
                             saSnapshot.positionSnapshots.forEach(positionSnapshot => {
                                 const asset = positionSnapshot.position.asset
-                                const amount = Number(positionSnapshot.totalDeposited)
-                                if (!balances[asset]) balances[asset] = 0
+                                const amount = BigInt(positionSnapshot.totalDeposited)
+                                if (!balances[asset]) balances[asset] = 0n
                                 balances[asset] += amount
                             })
                         })
@@ -81,8 +81,8 @@ Object.keys(graphs).forEach(chain => {
                     positionRegistries[0].smartAccounts.forEach(smartAccount => {
                         smartAccount.positions.forEach(position => {
                             const asset = position.asset
-                            const amount = Number(position.totalDeposited)
-                            if (!balances[asset]) balances[asset] = 0
+                            const amount = BigInt(position.totalDeposited)
+                            if (!balances[asset]) balances[asset] = 0n
                             balances[asset] += amount
                         })
                     })
